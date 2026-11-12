@@ -16,7 +16,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 34.9
+  "precio": 41.9
  },
  {
   "id": "AC-NAV-02",
@@ -34,7 +34,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 37.9
+  "precio": 44.9
  },
  {
   "id": "AC-NAV-03",
@@ -51,7 +51,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 38.9
+  "precio": 45.9
  },
  {
   "id": "AC-NAV-04",
@@ -69,7 +69,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": false,
-  "precio": 38.9
+  "precio": 45.9
  },
  {
   "id": "AC-NAV-05",
@@ -87,7 +87,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 39.9
+  "precio": 46.9
  },
  {
   "id": "AC-NAV-06",
@@ -106,7 +106,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 40.9
+  "precio": 47.9
  },
  {
   "id": "AC-NAV-07",
@@ -125,7 +125,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 40.9
+  "precio": 47.9
  },
  {
   "id": "AC-NAV-08",
@@ -144,7 +144,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 41.9
+  "precio": 48.9
  },
  {
   "id": "AC-NAV-09",
@@ -162,7 +162,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 41.9
+  "precio": 48.9
  },
  {
   "id": "AC-NAV-10",
@@ -181,7 +181,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": false,
-  "precio": 41.9
+  "precio": 48.9
  },
  {
   "id": "AC-NAV-11",
@@ -200,7 +200,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 41.9
+  "precio": 48.9
  },
  {
   "id": "AC-NAV-12",
@@ -220,7 +220,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": true,
-  "precio": 43.9
+  "precio": 50.9
  },
  {
   "id": "AC-NAV-13",
@@ -238,7 +238,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": false,
-  "precio": 45.9
+  "precio": 52.9
  },
  {
   "id": "AC-NAV-14",
@@ -256,7 +256,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 45.9
+  "precio": 52.9
  },
  {
   "id": "AC-NAV-15",
@@ -275,7 +275,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 47.9
+  "precio": 54.9
  },
  {
   "id": "AC-NAV-16",
@@ -294,7 +294,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 48.9
+  "precio": 55.9
  },
  {
   "id": "AC-NAV-17",
@@ -313,7 +313,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 48.9
+  "precio": 55.9
  },
  {
   "id": "AC-NAV-18",
@@ -331,7 +331,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 49.9
+  "precio": 56.9
  },
  {
   "id": "AC-NAV-19",
@@ -350,7 +350,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 49.9
+  "precio": 56.9
  },
  {
   "id": "AC-NAV-20",
@@ -370,7 +370,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": false,
-  "precio": 49.9
+  "precio": 57.9
  },
  {
   "id": "AC-NAV-21",
@@ -388,7 +388,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 50.9
+  "precio": 58.9
  },
  {
   "id": "AC-NAV-22",
@@ -407,7 +407,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 51.9
+  "precio": 58.9
  },
  {
   "id": "AC-NAV-23",
@@ -426,7 +426,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": false,
-  "precio": 52.9
+  "precio": 59.9
  },
  {
   "id": "AC-NAV-24",
@@ -445,7 +445,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": true,
-  "precio": 55.9
+  "precio": 62.9
  },
  {
   "id": "AC-NAV-25",
@@ -464,7 +464,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 55.9
+  "precio": 62.9
  },
  {
   "id": "AC-NAV-26",
@@ -483,7 +483,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 55.9
+  "precio": 62.9
  },
  {
   "id": "AC-NAV-27",
@@ -502,7 +502,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 55.9
+  "precio": 63.9
  },
  {
   "id": "AC-NAV-28",
@@ -522,7 +522,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": true,
-  "precio": 56.9
+  "precio": 64.9
  },
  {
   "id": "AC-NAV-29",
@@ -541,7 +541,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": true,
-  "precio": 57.9
+  "precio": 65.9
  },
  {
   "id": "AC-NAV-30",
@@ -562,7 +562,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 58.9
+  "precio": 66.9
  },
  {
   "id": "AC-NAV-31",
@@ -582,7 +582,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 60.9
+  "precio": 68.9
  },
  {
   "id": "AC-NAV-32",
@@ -602,7 +602,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 61.9
+  "precio": 69.9
  },
  {
   "id": "AC-NAV-33",
@@ -623,7 +623,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 67.9
+  "precio": 75.9
  },
  {
   "id": "AC-NAV-34",
@@ -643,7 +643,7 @@ const REGALOS = [
   "licor": false,
   "planta": false,
   "personalizable": true,
-  "precio": 68.9
+  "precio": 76.9
  },
  {
   "id": "AC-NAV-35",
@@ -661,7 +661,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 68.9
+  "precio": 76.9
  },
  {
   "id": "AC-NAV-36",
@@ -681,7 +681,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": true,
-  "precio": 72.9
+  "precio": 81.9
  },
  {
   "id": "AC-NAV-37",
@@ -700,7 +700,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 73.9
+  "precio": 81.9
  },
  {
   "id": "AC-NAV-38",
@@ -719,7 +719,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": true,
-  "precio": 73.9
+  "precio": 81.9
  },
  {
   "id": "AC-NAV-39",
@@ -739,7 +739,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 73.9
+  "precio": 82.9
  },
  {
   "id": "AC-NAV-40",
@@ -759,7 +759,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": false,
-  "precio": 76.9
+  "precio": 84.9
  },
  {
   "id": "AC-NAV-41",
@@ -778,7 +778,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 77.9
+  "precio": 85.9
  },
  {
   "id": "AC-NAV-42",
@@ -798,7 +798,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 77.9
+  "precio": 86.9
  },
  {
   "id": "AC-NAV-43",
@@ -821,7 +821,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 85.9
+  "precio": 94.9
  },
  {
   "id": "AC-NAV-44",
@@ -841,7 +841,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": false,
-  "precio": 85.9
+  "precio": 94.9
  },
  {
   "id": "AC-NAV-45",
@@ -862,7 +862,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 86.9
+  "precio": 95.9
  },
  {
   "id": "AC-NAV-46",
@@ -884,7 +884,7 @@ const REGALOS = [
   "licor": true,
   "planta": true,
   "personalizable": false,
-  "precio": 88.9
+  "precio": 97.9
  },
  {
   "id": "AC-NAV-47",
@@ -903,7 +903,7 @@ const REGALOS = [
   "licor": false,
   "planta": true,
   "personalizable": true,
-  "precio": 96.9
+  "precio": 105.9
  },
  {
   "id": "AC-NAV-48",
@@ -921,7 +921,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": false,
-  "precio": 98.9
+  "precio": 108.9
  },
  {
   "id": "AC-NAV-49",
@@ -942,7 +942,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 116.9
+  "precio": 126.9
  },
  {
   "id": "AC-NAV-50",
@@ -963,7 +963,7 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 121.9
+  "precio": 132.9
  },
  {
   "id": "AC-NAV-51",
@@ -983,6 +983,6 @@ const REGALOS = [
   "licor": true,
   "planta": false,
   "personalizable": true,
-  "precio": 160.9
+  "precio": 173.9
  }
 ];
