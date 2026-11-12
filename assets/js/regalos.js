@@ -1,4 +1,4 @@
-/* ===== Regalos · lógica de catálogo ===== */
+/* ===== Detalles · lógica de catálogo ===== */
 const grid=document.getElementById('grid');
 const emptyMsg=document.getElementById('empty');
 const countEl=document.getElementById('count');
@@ -7,7 +7,7 @@ document.querySelectorAll('[data-entrega]').forEach(e=>e.textContent=TIENDA.entr
 if(TIENDA.limiteNavidad){
   const n=document.getElementById('aviso-navidad');
   n.hidden=false;
-  n.innerHTML='🎄 Para recibir tu regalo antes de Navidad, haz tu pedido hasta el <b>'+TIENDA.limiteNavidad+'</b>.';
+  n.innerHTML='🎄 Para recibir tu detalle antes de Navidad, haz tu pedido hasta el <b>'+TIENDA.limiteNavidad+'</b>.';
 }
 
 const RANGOS=[
@@ -72,7 +72,7 @@ function render(){
     grid.appendChild(c);
   });
   emptyMsg.hidden=lista.length>0;
-  countEl.textContent=lista.length+(lista.length===1?' regalo':' regalos');
+  countEl.textContent=lista.length+(lista.length===1?' detalle':' detalles');
 }
 
 /* ===== MODAL ===== */
@@ -92,7 +92,9 @@ function openModal(id,fromHash){
   document.getElementById('m-pres').textContent=r.presentacion;
   const nota=document.getElementById('m-nota'); nota.hidden=!r.nota; nota.textContent=r.nota||'';
   document.getElementById('m-licor').hidden=!r.licor;
-  document.getElementById('m-ded').value='';
+  ['m-ded','m-pers','m-elec'].forEach(i=>document.getElementById(i).value='');
+  document.getElementById('m-pers-box').hidden=!r.personalizable;
+  document.getElementById('m-elec-box').hidden=!r.nota;
   updateWA();
   modal.hidden=false; document.body.classList.add('lock');
   modal.querySelector('.modal-box').scrollTop=0;
@@ -106,22 +108,38 @@ function closeModal(){
 }
 function updateWA(){
   if(!actual) return;
-  const d=document.getElementById('m-ded').value.trim();
-  const msg='¡Hola Aliens Corp! 👽 Quiero pedir este regalo:\n'
-    +'🎁 *'+actual.nombre+'* ('+actual.id+') — '+money(actual.precio)+'\n'
-    +(d?'✍️ Dedicatoria / nombre a personalizar: '+d+'\n':'')
-    +'📍 Ciudad de entrega: \n'
-    +'Entiendo que el pago es 100% por adelantado y que no hay cambios una vez confirmado.';
-  const a=document.getElementById('m-wa'); a.href=waURL(msg);
+  const v=id=>document.getElementById(id).value.trim();
+  const pend='(lo envío después)';
+  const L=[];
+  L.push('¡Hola Aliens Corp! 👽 Quiero pedir este detalle:');
+  L.push('');
+  L.push('🎁 *'+actual.nombre+'* ('+actual.id+')');
+  L.push('💲 Precio: '+money(actual.precio));
+  L.push('📦 Caja: '+actual.caja);
+  L.push('✨ Incluye:');
+  actual.incluye.forEach(x=>L.push('• '+x));
+  L.push('🎀 Presentación: '+actual.presentacion);
+  if(actual.nota) L.push('📝 Nota del detalle: '+actual.nota);
+  L.push('');
+  L.push('*Mis datos para el pedido*');
+  L.push('👤 Nombre: '+(v('m-nom')||pend));
+  L.push('📍 Ciudad de entrega: '+(v('m-ciu')||pend));
+  if(actual.personalizable) L.push('✍️ Nombre/texto a personalizar: '+(v('m-pers')||pend));
+  if(actual.nota) L.push('☑️ Mi elección: '+(v('m-elec')||pend));
+  L.push('💌 Dedicatoria: '+(v('m-ded')||pend));
+  if(actual.licor) L.push('🔞 Confirmo que el pedido es para mayores de 18 años.');
+  L.push('');
+  L.push('Entiendo que el pago es 100% por adelantado y que no hay cambios una vez confirmado el pedido.');
+  const a=document.getElementById('m-wa'); a.href=waURL(L.join('\n'));
   if(!a.querySelector('svg')) a.insertAdjacentHTML('afterbegin',WA_ICON);
 }
-document.getElementById('m-ded').addEventListener('input',updateWA);
+['m-nom','m-ciu','m-pers','m-elec','m-ded'].forEach(i=>document.getElementById(i).addEventListener('input',updateWA));
 modal.addEventListener('click',e=>{if(e.target.hasAttribute('data-close'))closeModal();});
 document.addEventListener('keydown',e=>{
   if(modal.hidden) return;
   if(e.key==='Escape') closeModal();
   if(e.key==='Tab'){ // mantener el foco dentro del modal
-    const f=[...modal.querySelectorAll('button,a[href],textarea')].filter(x=>!x.closest('[hidden]'));
+    const f=[...modal.querySelectorAll('button,a[href],textarea,input')].filter(x=>!x.closest('[hidden]'));
     if(!f.length) return;
     const first=f[0], last=f[f.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
