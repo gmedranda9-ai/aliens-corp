@@ -7,6 +7,7 @@ const TIENDA = {
   nombre: "Aliens Corp",
   ciudad: "Pedernales, Manabí",
   entrega: "7 a 10 días",
+  entregaSouvenirs: "5 a 8 días",
   /* Fecha límite para pedidos de Navidad (ej. "15 de diciembre"). Si queda en null, no se muestra. */
   limiteNavidad: null,
 };

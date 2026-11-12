@@ -8,7 +8,7 @@
 .ask{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;text-align:center;margin:44px 0 28px;color:var(--cream)}
 
 /* PUERTAS */
-.doors{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .door{position:relative;display:flex;flex-direction:column;text-decoration:none;border-radius:28px;overflow:hidden;border:1px solid var(--card-brd);background:var(--card);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;min-height:420px}
 .door:hover,.door:focus-visible{transform:translateY(-8px)}
 .door .pic{flex:1;min-height:230px;position:relative;overflow:hidden}
@@ -31,7 +31,12 @@
 .door.tech .kicker,.door.tech .go{color:var(--cyan)}
 .soon{margin-top:20px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:20px 26px;border:1px dashed var(--card-brd);border-radius:20px;color:var(--muted);font-size:.92rem;text-align:center}
 .soon b{color:var(--text)}
-@media(max-width:980px){.doors{grid-template-columns:1fr 1fr}.door.gifts{grid-column:1/-1;min-height:380px}}
+@media(max-width:980px){.door.gifts,.door.sou{min-height:380px}}
+.door.sou{border-color:rgba(190,170,255,.4)}
+.door.sou:hover{box-shadow:0 30px 60px -26px rgba(0,0,0,.9),0 0 44px -12px rgba(190,170,255,.5);border-color:#c4b5ff}
+.door.sou .pic img{object-fit:cover}
+.door.sou .kicker,.door.sou .go{color:#c4b5ff}
+.door.sou h3{font-family:var(--serif);font-weight:600;font-size:2.2rem;color:var(--cream)}
 @media(max-width:560px){.doors{grid-template-columns:1fr}.door{min-height:340px}.door.gifts h3{font-size:1.9rem}}
 
 /* DESTACADOS */

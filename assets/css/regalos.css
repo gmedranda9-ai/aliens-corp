@@ -153,3 +153,21 @@ body.lock{overflow:hidden}
 
 .plus-env{display:inline-block;margin-left:7px;font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#ff7b7b;vertical-align:middle}
 .m-info p.m-envio{margin:16px 0 0;font-size:.74rem;line-height:1.45;color:#ff8a8a}
+
+/* Souvenirs: cantidad */
+.unit{font-family:var(--sans,inherit);font-size:.55em;font-weight:500;color:var(--muted);margin-left:2px}
+.minq{display:inline-block;margin-top:4px;font-size:.72rem;color:var(--muted)}
+.m-tramo{margin:-8px 0 14px;font-size:.8rem;color:var(--muted)}
+.m-qty{margin:0 0 6px;padding:14px 16px;border:1px solid var(--card-brd);border-radius:16px;background:rgba(255,255,255,.03)}
+.m-qty .q-lbl{display:block;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--card-brd);border-radius:12px;overflow:hidden}
+.stepper button{width:44px;height:44px;background:transparent;border:0;color:var(--text);font-size:1.3rem;cursor:pointer}
+.stepper button:hover{background:rgba(255,255,255,.08)}
+.stepper input{width:70px;height:44px;text-align:center;background:transparent;border:0;border-inline:1px solid var(--card-brd);color:var(--text);font-size:1.1rem;font-weight:600;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.q-total{margin-top:12px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font-size:.9rem;color:var(--muted)}
+.q-total em{font-style:normal;font-size:.74rem;opacity:.8}
+.q-total b{font-family:var(--serif);font-size:1.6rem;color:var(--gold)}
+.q-total small{font-size:.72rem;color:#ff8a8a}
+.q-min{margin-top:6px;font-size:.78rem;color:var(--muted)}
+.q-min.warn{color:#ffb4b4}

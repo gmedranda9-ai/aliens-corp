@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Souvenirs · Aliens Corp — Detalles personalizados por cantidad</title>
+<meta name="description" content="Souvenirs personalizados para eventos, empresas y familias, desde $4 c/u. Elige, indica la cantidad y escríbenos por WhatsApp. Aliens Corp, Pedernales.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aliens Corp">
+<meta property="og:locale" content="es_EC">
+<meta property="og:title" content="Souvenirs · Aliens Corp">
+<meta property="og:description" content="Souvenirs personalizados por cantidad, desde $4 c/u. Pide por WhatsApp.">
+<meta property="og:url" content="https://gmedranda9-ai.github.io/aliens-corp/souvenirs/">
+<meta property="og:image" content="https://gmedranda9-ai.github.io/aliens-corp/img/og/souvenirs.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Souvenirs · Aliens Corp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Souvenirs · Aliens Corp">
+<meta name="twitter:description" content="Souvenirs personalizados por cantidad, desde $4 c/u. Pide por WhatsApp.">
+<meta name="twitter:image" content="https://gmedranda9-ai.github.io/aliens-corp/img/og/souvenirs.jpg">
+<meta name="theme-color" content="#0b0f1e">
+<link rel="icon" href="../assets/img/alien.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261111c">
+<link rel="stylesheet" href="../assets/css/regalos.css?v=20261111d">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/img/alien.svg" alt=""><b>ALIENS CORP</b></a>
+    <div class="links">
+      <a href="../">Inicio</a>
+      <a href="../detalles/">Detalles</a>
+      <a class="on" href="./">Souvenirs</a>
+      <a href="../tecnologia/">Tecnología</a>
+      <a href="#reglas">Cómo comprar</a>
+    </div>
+    <a class="cta" data-wa="¡Hola Aliens Corp! 👽 Quiero información sobre sus souvenirs." data-wa-icon>Escríbenos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div class="hero-text">
+    <div class="eyebrow">Colección Luna · Navidad</div>
+    <h1>Souvenirs que dejan <em>huella</em></h1>
+    <p class="lead">Pequeños detalles personalizados para tus invitados, tu equipo o tu familia. Elige tu souvenir, indica la cantidad y escríbenos por WhatsApp: nosotros nos encargamos del resto.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#catalogo">Ver los souvenirs</a>
+      <a class="btn btn-ghost" href="#reglas">Cómo comprar</a>
+    </div>
+    <ul class="perks">
+      <li>Desde $4 c/u</li>
+      <li>Entrega en <span data-entrega>5 a 8 días</span></li>
+      <li>Personalizados</li>
+      <li>Por cantidad</li>
+    </ul>
+  </div>
+  <div class="hero-photos" aria-hidden="true">
+    <img class="p1" src="../img/souvenirs/AC-SOU-01-t.webp" alt="" width="520" height="390">
+    <img class="p2" src="../img/souvenirs/AC-SOU-05-t.webp" alt="" width="520" height="520">
+    <img class="p3" src="../img/souvenirs/AC-SOU-03-t.webp" alt="" width="520" height="520">
+  </div>
+</header>
+
+<!-- AVISO CLARO -->
+<section class="wrap">
+  <div class="notice" id="aviso-navidad" hidden></div>
+  <div class="rules-strip">
+    <b>Antes de pedir:</b>
+    <span>Pedido mínimo según el souvenir</span><span>·</span>
+    <span>Pago 100% por adelantado</span><span>·</span>
+    <span>Entrega en <span data-entrega>5 a 8 días</span> desde tu pago</span><span>·</span>
+    <span>Envío aparte por Servientrega</span><span>·</span>
+    <span>Sin cambios una vez confirmado</span><span>·</span>
+    <span>Licor solo para mayores de 18</span>
+    <a href="#reglas">Ver reglas completas →</a>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<main class="wrap" id="catalogo">
+  <div class="toolbar">
+    <div class="filters" id="fPrecio" role="group" aria-label="Filtrar por precio"></div>
+    <div class="filters" id="fTipo" role="group" aria-label="Filtrar por tipo"></div>
+    <div class="sortbox">
+      <span id="count" aria-live="polite"></span>
+      <select id="orden" aria-label="Ordenar">
+        <option value="asc">Menor precio</option>
+        <option value="desc">Mayor precio</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>No hay souvenirs con esos filtros. Prueba con otro rango o <a data-wa="¡Hola Aliens Corp! 👽 Busco un souvenir diferente. Mi presupuesto es de $___ y necesito ___ unidades." data-wa-icon>cuéntanos qué buscas por WhatsApp</a>.</p>
+
+  <div class="custom">
+    <div>
+      <h3>¿Más de 100 piezas o algo distinto?</h3>
+      <p>Cuéntanos qué tienes en mente, cuántas unidades necesitas y tu presupuesto. Armamos una propuesta para tu evento, tu empresa o tu familia.</p>
+    </div>
+    <a class="btn btn-gold" data-wa="¡Hola Aliens Corp! 👽 Quiero cotizar souvenirs diferentes / por cantidad. Presupuesto: $___ · Unidades: ___" data-wa-icon>Pedir una cotización</a>
+  </div>
+</main>
+
+<!-- REGLAS -->
+<section class="wrap rules" id="reglas">
+  <div class="eyebrow center">Todo claro desde el inicio</div>
+  <h2>Cómo comprar</h2>
+  <ol class="steps">
+    <li><i>1</i><b>Elige</b><span>Mira los souvenirs y abre el que te guste para ver todo lo que incluye.</span></li>
+    <li><i>2</i><b>Indica la cantidad</b><span>Elige cuántas unidades necesitas (hay un mínimo por souvenir) y pulsa «Pedir por WhatsApp». El mensaje sale listo con el total.</span></li>
+    <li><i>3</i><b>Paga</b><span>Te damos los datos para la transferencia. Pagas el 100% y comenzamos a preparar tu pedido.</span></li>
+    <li><i>4</i><b>Recibe</b><span>Entrega en <span data-entrega>5 a 8 días</span> desde que confirmamos tu pago y los datos de personalización.</span></li>
+  </ol>
+
+  <div class="rule-grid">
+    <article><h3>💳 Pago</h3><p>Se paga el <b>100% por adelantado</b>, por <b>transferencia bancaria</b> o en efectivo si nos vemos en persona. No trabajamos contra entrega.</p></article>
+    <article><h3>🔢 Pedido mínimo y precio por cantidad</h3><p>Cada souvenir tiene un <b>pedido mínimo</b> (3, 6 o 12 unidades, según el souvenir), que se ve en su tarjeta. El precio que ves es <b>por unidad</b>, y baja un poco al pedir más cantidad.</p></article>
+    <article><h3>⏳ Entrega</h3><p>Cada souvenir se prepara a pedido. Tiempo estimado: <b data-entrega>5 a 8 días</b>, contados desde que confirmamos tu pago y los datos de personalización.</p></article>
+    <article><h3>✍️ Personalización</h3><p>Los souvenirs marcados como personalizables llevan tu nombre, mensaje o logo. Coordinamos contigo los detalles por WhatsApp antes de confirmar el pedido.</p></article>
+    <article><h3>🚫 Cambios</h3><p>Como cada souvenir se elabora especialmente para ti, <b>una vez confirmado el pedido no se admiten cambios ni modificaciones</b>. Revisa bien tus datos antes de pagar.</p></article>
+    <article><h3>🍷 Licor</h3><p>Los souvenirs con este símbolo contienen bebidas alcohólicas. <b>Se venden y entregan solo a mayores de 18 años.</b></p></article>
+    <article><h3>📦 Al recibir</h3><p>Revisa tu detalle al recibirlo y avísanos de inmediato por WhatsApp si hay algún inconveniente. Algunos souvenirs incluyen vidrio, así que los empacamos con cuidado.</p></article>
+    <article><h3>📍 Envío (no incluido)</h3><p>El precio de cada souvenir <b>no incluye el envío</b>. Lo hacemos por Servientrega, con el mayor cuidado y empaque premium, a todo el país. Cuesta <b>desde $8 hasta $15</b> según el peso del pedido y la ciudad, y cobramos exactamente lo que cobra Servientrega. Te confirmamos el valor exacto al momento de enviar.</p></article>
+    <article><h3>🎁 Algo diferente</h3><p>¿Un souvenir distinto o muchas unidades para tu empresa o evento? Indícanos la cantidad y tu presupuesto y te preparamos una cotización.</p></article>
+  </div>
+
+  <p class="fine">Las fotos son referenciales: los nombres, mensajes y logos que se ven son ejemplos de personalización, el tuyo llevará los que nos indiques. El diseño, los colores y algunos artículos pueden variar levemente según disponibilidad, manteniendo siempre el mismo valor y estilo. Plantas y productos naturales pueden diferir en forma y tamaño.</p>
+</section>
+
+<footer class="site wrap">
+  <img src="../assets/img/alien.svg" alt="">
+  <h3>ALIENS CORP</h3>
+  <p>Detalles y tecnología desde Pedernales, Manabí. Pide por WhatsApp y te atendemos directamente.</p>
+  <p class="owner">Ing. Alejandro Medranda Vera<span>Aliens Corp · Tu tienda de confianza</span></p>
+  <a class="btn btn-wa" data-wa="¡Hola Aliens Corp! 👽 Quiero más información." data-wa-icon>Escríbenos por WhatsApp</a>
+  <div class="copy">© <span data-year>2026</span> ALIENS CORP · Ecuador<br>
+    <a href="https://www.poseidonmk.com/" target="_blank" rel="noopener">Desarrollado por Poseidón — Automatización &amp; Tecnología</a></div>
+</footer>
+
+<!-- MODAL DE DETALLE -->
+<div class="lb" id="lb" hidden role="dialog" aria-label="Foto ampliada"><button class="lb-x" id="lb-x" aria-label="Cerrar foto">×</button><img id="lb-img" src="" alt=""><div class="lb-hint">Toca la foto para acercar · usa × para volver</div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-nombre" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Cerrar">×</button>
+    <div class="modal-scroll">
+    <div class="m-photo" id="m-photo" role="button" tabindex="0" aria-label="Ampliar foto"><img id="m-img" src="" alt="" width="900" height="900"><span class="m-zoom">🔍 Toca para ampliar</span></div>
+    <div class="m-info">
+      <div class="m-code" id="m-code"></div>
+      <h2 id="m-nombre"></h2>
+      <div class="m-badges" id="m-badges"></div>
+      <div class="m-price" id="m-price"></div>
+      <p class="m-tramo" id="m-tramo"></p>
+      <div class="m-qty">
+        <span class="q-lbl">Cantidad</span>
+        <div class="stepper"><button type="button" id="q-minus" aria-label="Menos">−</button><input id="q-input" type="number" inputmode="numeric" min="1" step="1" value="1" aria-label="Cantidad de unidades"><button type="button" id="q-plus" aria-label="Más">+</button></div>
+        <div class="q-total" id="q-total" aria-live="polite"></div>
+        <div class="q-min" id="q-min"></div>
+      </div>
+      <h4>La caja</h4><p id="m-caja"></p>
+      <h4>Incluye</h4><ul id="m-incluye"></ul>
+      <h4>Presentación</h4><p id="m-pres"></p>
+      <p class="m-nota" id="m-nota" hidden></p>
+      <p class="m-licor" id="m-licor" hidden>🍷 Contiene bebidas alcohólicas: venta y entrega solo a mayores de 18 años.</p>
+      <p class="m-envio" role="note">* Este precio no incluye el envío. Se realiza por Servientrega, con el mayor cuidado y un empaque premium, a todo el país: desde $8 hasta $15 según el peso y la ciudad. Te confirmamos el valor exacto al momento de enviar.</p>
+      <div class="m-form">
+        <h4>Tus datos para el pedido <small>(todo es opcional: lo que falte lo coordinamos por WhatsApp)</small></h4>
+        <label class="m-field">Tu nombre
+          <input id="m-nom" type="text" maxlength="60" autocomplete="name" placeholder="Ej.: Alejandro Medranda">
+        </label>
+        <label class="m-field">Ciudad de entrega
+          <input id="m-ciu" type="text" maxlength="60" placeholder="Ej.: Pedernales">
+        </label>
+        <label class="m-field">Lo necesito para <small>(evento o fecha)</small>
+          <input id="m-fecha" type="text" maxlength="80" placeholder="Ej.: Navidad de la empresa, 20 de diciembre">
+        </label>
+        <label class="m-field" id="m-pers-box">Nombre, mensaje o logo a personalizar <small>(según el souvenir)</small>
+          <input id="m-pers" type="text" maxlength="60" placeholder="Ej.: Carlos">
+        </label>
+        <label class="m-field" id="m-elec-box">Tu elección <small>(según la nota de arriba: sabor, cambio…)</small>
+          <input id="m-elec" type="text" maxlength="100" placeholder="Ej.: té verde">
+        </label>
+        <label class="m-field">Mensaje o dedicatoria <small>(si quieres incluir uno)</small>
+          <textarea id="m-ded" rows="2" maxlength="220" placeholder="Ej.: Feliz Navidad de parte de todo el equipo."></textarea>
+        </label>
+      </div>
+      <a class="btn btn-wa" id="m-wa" target="_blank" rel="noopener" data-wa-icon>Pedir por WhatsApp</a>
+      <a class="btn-share" id="m-share" target="_blank" rel="noopener">↗ Compartir este souvenir con alguien</a>
+      <p class="m-small">Envío aparte · Pago 100% por adelantado · <span data-entrega>5 a 8 días</span> · Sin cambios una vez confirmado.</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script src="../data/config.js?v=20261111c"></script>
+<script src="../data/souvenirs.js?v=20261111d"></script>
+<script src="../assets/js/site.js?v=20261111c"></script>
+<script src="../assets/js/souvenirs.js?v=20261111d"></script>
+</body>
+</html>
