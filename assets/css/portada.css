@@ -1,7 +1,7 @@
 /* ===== Portada · Aliens Corp ===== */
 .hero{text-align:center;padding:76px 22px 34px;position:relative}
 .hero .logo{width:92px;height:92px;margin:0 auto 18px;filter:drop-shadow(0 0 22px rgba(155,255,91,.55))}
-.hero h1{font-family:'Syne',var(--sans);font-weight:800;font-size:clamp(2.6rem,8vw,5rem);letter-spacing:-1.5px;line-height:.95;background:linear-gradient(95deg,#fff 15%,var(--lime) 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-family:'Syne',var(--sans);font-weight:800;font-size:clamp(1.5rem,8.2vw,5rem);letter-spacing:-1px;padding:0 4px;line-height:.95;background:linear-gradient(95deg,#fff 15%,var(--lime) 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .tag{font-family:var(--mono);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--lime-soft);margin-top:12px;opacity:.85}
 .hero .lead{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:1.1rem;font-weight:300}
 .hero .lead b{color:var(--text);font-weight:500}
@@ -41,7 +41,7 @@
 .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .fcard{display:flex;flex-direction:column;text-decoration:none;border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--card-brd);transition:.3s}
 .fcard:hover{transform:translateY(-6px);border-color:rgba(232,201,133,.6)}
-.fcard img{aspect-ratio:1;object-fit:cover;width:100%}
+.fcard img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
 .fcard div{padding:14px 16px 18px}
 .fcard b{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--cream);display:block}
 .fcard span{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold)}

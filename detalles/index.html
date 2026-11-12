@@ -140,12 +140,13 @@
 </footer>
 
 <!-- MODAL DE DETALLE -->
+<div class="lb" id="lb" hidden role="dialog" aria-label="Foto ampliada"><button class="lb-x" id="lb-x" aria-label="Cerrar foto">×</button><img id="lb-img" src="" alt=""><div class="lb-hint">Toca la foto para acercar · usa × para volver</div></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-nombre" hidden>
   <div class="modal-bg" data-close></div>
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Cerrar">×</button>
     <div class="modal-scroll">
-    <div class="m-photo"><img id="m-img" src="" alt="" width="900" height="900"></div>
+    <div class="m-photo" id="m-photo" role="button" tabindex="0" aria-label="Ampliar foto"><img id="m-img" src="" alt="" width="900" height="900"><span class="m-zoom">🔍 Toca para ampliar</span></div>
     <div class="m-info">
       <div class="m-code" id="m-code"></div>
       <h2 id="m-nombre"></h2>
