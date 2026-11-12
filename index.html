@@ -124,7 +124,7 @@ document.getElementById('gDesde').textContent='desde '+money(Math.min(...precios
 const DEST=['AC-NAV-01','AC-NAV-13','AC-NAV-35','AC-NAV-51'];
 document.getElementById('feat').innerHTML=DEST.map(id=>{
   const r=REGALOS.find(x=>x.id===id);
-  return `<a class="fcard" href="detalles/#${r.id}"><img src="img/regalos/${r.id}-t.webp" alt="${r.nombre}" width="520" height="520" loading="lazy"><div><b>${r.nombre}</b><span>${money(r.precio)}</span></div></a>`;
+  return `<a class="fcard" href="detalles/#${r.id}"><img src="img/regalos/${r.id}-t.webp" alt="${r.nombre}" width="520" height="520" loading="lazy"><div><b>${r.nombre}</b><span>${money(r.precio)}<small class="plus-env">+ envío</small></span></div></a>`;
 }).join('');
 </script>
 </body>

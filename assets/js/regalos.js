@@ -66,7 +66,7 @@ function render(){
         <div class="code">${r.id}</div>
         <h2>${esc(r.nombre)}</h2>
         <div class="dest">${esc(r.destacados)}</div>
-        <div class="foot"><div class="price">${money(r.precio)}</div><div class="more">Ver detalle →</div></div>
+        <div class="foot"><div class="price">${money(r.precio)}<small class="plus-env">+ envío</small></div><div class="more">Ver detalle →</div></div>
       </div>`;
     c.onclick=()=>openModal(r.id);
     grid.appendChild(c);
@@ -120,7 +120,7 @@ function updateWA(){
   L.push('¡Hola Aliens Corp! 👽 Quiero pedir este detalle:');
   L.push('');
   L.push('🎁 *'+actual.nombre+'* ('+actual.id+')');
-  L.push('💲 Precio: '+money(actual.precio));
+  L.push('💲 Precio: '+money(actual.precio)+' (sin envío)');
   L.push('📦 Caja: '+actual.caja);
   L.push('✨ Incluye:');
   actual.incluye.forEach(x=>L.push('• '+x));
@@ -130,6 +130,7 @@ function updateWA(){
   L.push('*Mis datos para el pedido*');
   L.push('👤 Nombre: '+(v('m-nom')||pend));
   L.push('📍 Ciudad de entrega: '+(v('m-ciu')||pend));
+  L.push('🚚 Envío: aparte, por Servientrega (de $8 a $15 según peso y ciudad). Confírmame el valor exacto antes de pagar.');
   if(actual.personalizable) L.push('✍️ Nombre/texto a personalizar: '+(v('m-pers')||pend));
   if(actual.nota) L.push('☑️ Mi elección: '+(v('m-elec')||pend));
   L.push('💌 Dedicatoria: '+(v('m-ded')||pend));
@@ -139,7 +140,7 @@ function updateWA(){
   const a=document.getElementById('m-wa'); a.href=waURL(L.join('\n'));
   if(!a.querySelector('svg')) a.insertAdjacentHTML('afterbegin',WA_ICON);
   const link=location.origin+location.pathname+'#'+actual.id;
-  const T=['👽✨ *Aliens Corp · Detalles*','','Mira este detalle: *'+actual.nombre+'* — '+money(actual.precio),'Incluye dedicatoria. Entrega en '+TIENDA.entrega+'.','',link];
+  const T=['👽✨ *Aliens Corp · Detalles*','','Mira este detalle: *'+actual.nombre+'* — '+money(actual.precio)+' + envío','Incluye dedicatoria. Entrega en '+TIENDA.entrega+'.','',link];
   document.getElementById('m-share').href='https://wa.me/?text='+encodeURIComponent(T.join('\n'));
 }
 ['m-nom','m-ciu','m-pers','m-elec','m-ded'].forEach(i=>document.getElementById(i).addEventListener('input',updateWA));

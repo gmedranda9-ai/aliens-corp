@@ -58,3 +58,5 @@
 .trust{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
 .trust span{font-family:var(--mono);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border:1px solid var(--card-brd);background:var(--card);padding:8px 14px;border-radius:99px}
 .trust span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);margin-right:8px}
+
+.plus-env{display:inline-block;margin-left:7px;font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#ff7b7b;vertical-align:middle}
