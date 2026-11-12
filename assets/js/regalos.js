@@ -130,7 +130,7 @@ function updateWA(){
   L.push('*Mis datos para el pedido*');
   L.push('👤 Nombre: '+(v('m-nom')||pend));
   L.push('📍 Ciudad de entrega: '+(v('m-ciu')||pend));
-  L.push('🚚 Envío: aparte, por Servientrega (de $8 a $15 según peso y ciudad). Confírmame el valor exacto antes de pagar.');
+  L.push('🚚 Envío: aparte, por Servientrega (de $8 a $15 según peso y ciudad). Confírmame el valor exacto al momento de enviar.');
   if(actual.personalizable) L.push('✍️ Nombre/texto a personalizar: '+(v('m-pers')||pend));
   if(actual.nota) L.push('☑️ Mi elección: '+(v('m-elec')||pend));
   L.push('💌 Dedicatoria: '+(v('m-ded')||pend));
