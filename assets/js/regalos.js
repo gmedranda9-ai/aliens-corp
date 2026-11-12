@@ -97,14 +97,20 @@ function openModal(id,fromHash){
   document.getElementById('m-elec-box').hidden=!r.nota;
   updateWA();
   modal.hidden=false; document.body.classList.add('lock');
-  modal.querySelector('.modal-box').scrollTop=0;
+  modal.querySelector('.modal-scroll').scrollTop=0;
   modal.querySelector('.modal-x').focus();
-  if(!fromHash) history.replaceState(null,'','#'+r.id);
+  if(!fromHash) history.pushState({m:1},'','#'+r.id);
+}
+function hideModal(){
+  if(modal.hidden) return;
+  modal.hidden=true; document.body.classList.remove('lock');
+  if(lastFocus&&lastFocus.focus) lastFocus.focus();
 }
 function closeModal(){
-  modal.hidden=true; document.body.classList.remove('lock');
+  // si el detalle se abrió desde el catálogo, "cerrar" = volver un paso (queda en el mismo lugar)
+  if(history.state&&history.state.m){ history.back(); return; }
+  hideModal();
   history.replaceState(null,'',location.pathname+location.search);
-  if(lastFocus&&lastFocus.focus) lastFocus.focus();
 }
 function updateWA(){
   if(!actual) return;
@@ -151,7 +157,7 @@ document.addEventListener('keydown',e=>{
 });
 window.addEventListener('hashchange',()=>{
   const id=location.hash.slice(1);
-  if(REGALOS.some(x=>x.id===id)) openModal(id,true); else if(!modal.hidden) closeModal();
+  if(REGALOS.some(x=>x.id===id)) openModal(id,true); else hideModal();
 });
 
 render();
