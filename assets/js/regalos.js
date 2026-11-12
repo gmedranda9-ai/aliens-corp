@@ -132,6 +132,9 @@ function updateWA(){
   L.push('Entiendo que el pago es 100% por adelantado y que no hay cambios una vez confirmado el pedido.');
   const a=document.getElementById('m-wa'); a.href=waURL(L.join('\n'));
   if(!a.querySelector('svg')) a.insertAdjacentHTML('afterbegin',WA_ICON);
+  const link=location.origin+location.pathname+'#'+actual.id;
+  const T=['👽✨ *Aliens Corp · Detalles*','','Mira este detalle: *'+actual.nombre+'* — '+money(actual.precio),'Incluye dedicatoria. Entrega en '+TIENDA.entrega+'.','',link];
+  document.getElementById('m-share').href='https://wa.me/?text='+encodeURIComponent(T.join('\n'));
 }
 ['m-nom','m-ciu','m-pers','m-elec','m-ded'].forEach(i=>document.getElementById(i).addEventListener('input',updateWA));
 modal.addEventListener('click',e=>{if(e.target.hasAttribute('data-close'))closeModal();});
