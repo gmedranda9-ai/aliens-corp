@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnología · Aliens Corp — Laptops e impresoras originales</title>
+<link rel="icon" href="../assets/img/alien.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  :root{
+    --bg:#0b0f1e;
+    --bg2:#121734;
+    --lime:#a6ff6b;
+    --lime-soft:#c9ffa6;
+    --violet:#b18cff;
+    --cyan:#66ecff;
+    --text:#f2f3fb;
+    --muted:#9aa0c4;
+    --card:rgba(255,255,255,.055);
+    --card-brd:rgba(255,255,255,.12);
+    --price:#a6ff6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* cosmic background */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(166,255,107,.22), transparent 60%),
+      radial-gradient(820px 720px at 95% 6%, rgba(177,140,255,.26), transparent 58%),
+      radial-gradient(760px 720px at 50% 118%, rgba(102,236,255,.18), transparent 62%),
+      radial-gradient(600px 500px at 78% 85%, rgba(166,255,107,.10), transparent 60%),
+      linear-gradient(180deg,#0b0f1e, #0e1330 45%, #0b0f1e);
+  }
+  /* star dots */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.14) 1px, transparent 1.4px);
+    background-size:38px 38px;
+    mask-image:radial-gradient(circle at 50% 35%, black, transparent 85%);
+    opacity:.55;
+  }
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+
+  /* ===== HEADER / HERO ===== */
+  header{padding:54px 0 24px;text-align:center;position:relative}
+  .brand{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+  .logo{width:78px;height:78px;filter:drop-shadow(0 0 18px rgba(155,255,91,.55))}
+  .brand-text{text-align:left}
+  .brand-text h1{
+    font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.1rem,6vw,3.4rem);
+    letter-spacing:-1px;line-height:.95;
+    background:linear-gradient(95deg,#fff 20%,var(--lime) 60%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .brand-text .tag{
+    font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:3px;
+    text-transform:uppercase;color:var(--lime-soft);margin-top:6px;opacity:.85;
+  }
+  .lead{max-width:620px;margin:26px auto 0;color:var(--muted);font-size:1.02rem;font-weight:300}
+  .lead b{color:var(--text);font-weight:500}
+
+  .trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .trust span{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--card-brd);background:var(--card);
+    padding:8px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:7px;
+  }
+  .trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+
+  /* ===== FILTER ===== */
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:42px 0 0}
+  .filters button{
+    font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;
+    color:var(--muted);background:transparent;border:1px solid var(--card-brd);
+    padding:10px 20px;border-radius:99px;cursor:pointer;transition:.25s;
+  }
+  .filters button:hover{color:var(--text);border-color:rgba(155,255,91,.4)}
+  .filters button.active{
+    color:#06060c;background:var(--lime);border-color:var(--lime);font-weight:700;
+    box-shadow:0 0 22px rgba(155,255,91,.4);
+  }
+  /* subfiltros (nivel 2) */
+  .subfilters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+    margin:16px 0 34px;min-height:0;overflow:hidden;
+    max-height:0;opacity:0;transition:max-height .35s ease,opacity .3s ease,margin .3s ease}
+  .subfilters.show{max-height:120px;opacity:1;margin:16px 0 34px}
+  .subfilters:not(.show){margin:0}
+  .subfilters button{
+    font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--card-brd);
+    padding:7px 15px;border-radius:99px;cursor:pointer;transition:.22s;
+  }
+  .subfilters button:hover{color:var(--text);border-color:rgba(102,236,255,.5)}
+  .subfilters button.active{
+    color:#06060c;background:var(--cyan);border-color:var(--cyan);font-weight:700;
+    box-shadow:0 0 16px rgba(102,236,255,.4);
+  }
+
+  /* ===== GRID ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;padding-bottom:60px}
+  .card{
+    background:var(--card);border:1px solid var(--card-brd);border-radius:22px;
+    padding:18px 18px 22px;position:relative;overflow:hidden;
+    backdrop-filter:blur(6px);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;
+    opacity:0;transform:translateY(22px);
+    animation:rise .6s forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+  .card:hover{transform:translateY(-7px);border-color:rgba(155,255,91,.45);
+    box-shadow:0 22px 50px -20px rgba(0,0,0,.8),0 0 30px -10px rgba(155,255,91,.35)}
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(155,255,91,.6),transparent);
+    opacity:0;transition:.3s;
+  }
+  .card:hover::before{opacity:1}
+  .card.premium{border-color:rgba(160,123,255,.4)}
+  .card.premium:hover{box-shadow:0 22px 50px -20px rgba(0,0,0,.8),0 0 34px -10px rgba(160,123,255,.5)}
+
+  .badge-top{position:absolute;top:16px;right:16px;z-index:5;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+  .pill{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 10px;border-radius:99px;font-weight:700;
+  }
+  .pill.brand{background:rgba(18,23,52,.82);color:#fff;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(4px)}
+  .pill.gaming{background:rgba(255,90,110,.9);color:#fff;border:1px solid rgba(255,255,255,.25)}
+  .pill.top{background:rgba(160,123,255,.9);color:#fff;border:1px solid rgba(255,255,255,.25)}
+
+  .art{height:190px;display:flex;align-items:center;justify-content:center;margin:4px 0 6px;position:relative;
+    border-radius:16px;overflow:hidden;background:#ffffff}
+  .art svg{width:88%;max-width:240px;filter:drop-shadow(0 18px 26px rgba(0,0,0,.28))}
+  .art-photo{width:100%;height:100%;object-fit:cover;position:relative;z-index:2;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .card:hover .art-photo{transform:scale(1.05)}
+  .art-glow{position:absolute;width:70%;height:46px;bottom:10px;left:15%;border-radius:50%;
+    background:var(--cardaccent,var(--lime));filter:blur(30px);opacity:.22;z-index:1}
+
+  .title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.18rem;line-height:1.15;margin-top:6px;letter-spacing:-.3px}
+  .os{display:inline-flex;align-items:center;gap:7px;margin-top:11px;font-size:.74rem;
+    font-family:'Space Mono',monospace;color:var(--lime-soft);
+    background:rgba(155,255,91,.08);border:1px solid rgba(155,255,91,.22);
+    padding:5px 11px;border-radius:8px}
+  .os::before{content:"✓";font-weight:700}
+
+  .specs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 18px}
+  .specs span{
+    font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.04);
+    border:1px solid var(--card-brd);padding:5px 10px;border-radius:7px;font-weight:400;
+  }
+  .specs span b{color:var(--text);font-weight:600}
+
+  .foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto}
+  .price .lbl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .price .val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.85rem;line-height:1;color:var(--price);letter-spacing:-1px}
+  .price .val sup{font-size:.95rem;font-weight:700;top:-.7em;margin-right:1px}
+  .wa{
+    flex-shrink:0;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    background:linear-gradient(135deg,#25d366,#1eb858);color:#03210e;font-weight:600;
+    font-size:.82rem;padding:11px 15px;border-radius:12px;transition:.25s;white-space:nowrap;
+  }
+  .wa:hover{transform:translateY(-2px);box-shadow:0 8px 20px -6px rgba(37,211,102,.6)}
+  .wa svg{width:16px;height:16px}
+
+  /* ===== FOOTER ===== */
+  footer{text-align:center;padding:46px 0 60px;border-top:1px solid var(--card-brd);margin-top:20px}
+  .foot-logo{width:48px;height:48px;margin:0 auto 14px;filter:drop-shadow(0 0 14px rgba(155,255,91,.5))}
+  footer h3{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:1px;font-size:1.3rem}
+  footer p{color:var(--muted);font-size:.85rem;margin-top:8px;font-weight:300}
+  .owner{margin-top:22px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;
+    color:var(--text);letter-spacing:.3px}
+  .owner .role{display:block;font-family:'Space Mono',monospace;font-weight:400;font-size:.7rem;
+    letter-spacing:2px;text-transform:uppercase;color:var(--lime-soft);margin-top:6px}
+  .footwa{display:inline-flex;align-items:center;gap:9px;margin-top:20px;text-decoration:none;
+    background:linear-gradient(135deg,#25d366,#1eb858);color:#03210e;font-weight:600;
+    padding:13px 26px;border-radius:99px;transition:.25s}
+  .footwa:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(37,211,102,.6)}
+  .footwa svg{width:18px;height:18px}
+  .copy{margin-top:26px;font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:1px;color:#55556e}
+
+  @media (max-width:600px){
+    .brand{flex-direction:column;gap:10px}
+    .brand-text{text-align:center}
+    .foot{flex-direction:column;align-items:stretch}
+    .wa{justify-content:center}
+  }
+  /* PDF / print */
+  @media print{
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .filters,.wa,.footwa,.trust{display:none!important}
+    .card{break-inside:avoid;animation:none;opacity:1;transform:none}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    header{padding-top:20px}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/img/alien.svg" alt=""><b>ALIENS CORP</b></a>
+    <div class="links">
+      <a href="../">Inicio</a>
+      <a href="../regalos/">Regalos</a>
+      <a class="on" href="./">Tecnología</a>
+      <a href="../regalos/#reglas">Cómo comprar</a>
+    </div>
+    <a class="cta" data-wa="¡Hola Aliens Corp! 👽 Quiero información sobre tecnología." data-wa-icon>Escríbenos</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="wrap">
+  <div class="brand">
+    <!-- ALIEN HEAD LOGO -->
+    <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="alien" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#bfff96"/>
+          <stop offset="1" stop-color="#5bd6a0"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 6 C72 6 88 24 88 47 C88 63 79 76 68 86 C61 92 55 95 50 95 C45 95 39 92 32 86 C21 76 12 63 12 47 C12 24 28 6 50 6 Z" fill="url(#alien)"/>
+      <path d="M50 6 C72 6 88 24 88 47 C88 63 79 76 68 86 C61 92 55 95 50 95 C45 95 39 92 32 86 C21 76 12 63 12 47 C12 24 28 6 50 6 Z" fill="#0a3a24" opacity=".12"/>
+      <!-- eyes -->
+      <path d="M24 44 C24 38 30 35 37 38 C43 41 45 50 41 57 C38 62 32 63 28 58 C25 54 24 49 24 44 Z" fill="#06060c"/>
+      <path d="M76 44 C76 38 70 35 63 38 C57 41 55 50 59 57 C62 62 68 63 72 58 C75 54 76 49 76 44 Z" fill="#06060c"/>
+      <!-- eye glints -->
+      <circle cx="32" cy="44" r="2.6" fill="#9bff5b"/>
+      <circle cx="68" cy="44" r="2.6" fill="#9bff5b"/>
+    </svg>
+    <div class="brand-text">
+      <h1>ALIENS&nbsp;CORP</h1>
+      <div class="tag">Tecnología de otro mundo</div>
+    </div>
+  </div>
+
+  <p class="lead">Tu tienda de <b>tecnología y más</b>. Productos originales, entrega a domicilio y atención directa por WhatsApp. Lo que buscas, al mejor precio del planeta… y más allá. 👽</p>
+
+  <div class="trust">
+    <span>Productos originales</span>
+    <span>Entrega a domicilio</span>
+    <span>Pedido fácil por WhatsApp</span>
+    <span>Garantía de compra</span>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="subfilters" id="subfilters"></div>
+</header>
+
+<!-- ===================== GRID ===================== -->
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="wrap">
+  <svg class="foot-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 6 C72 6 88 24 88 47 C88 63 79 76 68 86 C61 92 55 95 50 95 C45 95 39 92 32 86 C21 76 12 63 12 47 C12 24 28 6 50 6 Z" fill="#9bff5b"/>
+    <path d="M24 44 C24 38 30 35 37 38 C43 41 45 50 41 57 C38 62 32 63 28 58 C25 54 24 49 24 44 Z" fill="#06060c"/>
+    <path d="M76 44 C76 38 70 35 63 38 C57 41 55 50 59 57 C62 62 68 63 72 58 C75 54 76 49 76 44 Z" fill="#06060c"/>
+  </svg>
+  <h3>ALIENS CORP</h3>
+  <p>Haz tu pedido o consulta disponibilidad. Te atendemos sin compromiso.</p>
+  <p class="owner">Ing. Alejandro Medranda Vera<span class="role">Aliens Corp · Tu tienda de confianza</span></p>
+  <a class="footwa" id="footwa" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.521 5.26l-.999 3.648 3.967-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.29.173-1.414z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+  <div class="copy">© 2026 ALIENS CORP · Ecuador · Precios referenciales<br>
+    <a href="https://www.poseidonmk.com/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Desarrollado por Poseidón — Automatización & Tecnología</a>
+  </div>
+</footer>
+
+<script>
+</script>
+<script src="../data/config.js"></script>
+<script src="../data/tecnologia.js"></script>
+<script src="../assets/js/site.js"></script>
+<script>
+/* ====== SVG LAPTOP ILLUSTRATIONS ====== */
+function laptopSVG(item, i){
+  const a = item.accent || "#9bff5b";
+  const gid = "g"+i, wid="w"+i;
+  // wallpaper inside screen
+  const wallpaper = `
+    <defs>
+      <linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${a}" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#0c0c18"/>
+      </linearGradient>
+      <radialGradient id="${wid}" cx="30%" cy="25%" r="80%">
+        <stop offset="0" stop-color="${a}" stop-opacity=".9"/>
+        <stop offset="45%" stop-color="${a}" stop-opacity=".25"/>
+        <stop offset="100%" stop-color="#0a0a14"/>
+      </radialGradient>
+    </defs>`;
+
+  if(item.art === "mac"){
+    const body = item.body || "#c9ccd4";
+    return `<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">${wallpaper}
+      <rect x="54" y="12" width="152" height="98" rx="9" fill="#0a0a12" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+      <rect x="60" y="18" width="140" height="86" rx="5" fill="url(#${wid})"/>
+      <rect x="118" y="12" width="24" height="6" rx="3" fill="#0a0a12"/>
+      <path d="M40 110 L220 110 L236 124 L24 124 Z" fill="${body}"/>
+      <path d="M24 124 L236 124 L240 130 Q240 133 236 133 L24 133 Q20 133 20 130 Z" fill="${shade(body,-18)}"/>
+      <rect x="112" y="111" width="36" height="3" rx="1.5" fill="${shade(body,-25)}"/>
+    </svg>`;
+  }
+  if(item.art === "yoga"){
+    return `<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">${wallpaper}
+      <g transform="rotate(-6 130 80)">
+        <rect x="58" y="10" width="150" height="100" rx="8" fill="#101018" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+        <rect x="64" y="16" width="138" height="88" rx="4" fill="url(#${wid})"/>
+        <circle cx="133" cy="13" r="1.4" fill="rgba(255,255,255,.5)"/>
+      </g>
+      <path d="M44 112 L218 112 L232 128 Q233 132 228 132 L34 132 Q29 132 30 128 Z" fill="#1a1a26" stroke="rgba(255,255,255,.1)"/>
+      <rect x="112" y="114" width="38" height="3" rx="1.5" fill="rgba(255,255,255,.14)"/>
+      <rect x="64" y="118" width="9" height="9" rx="2" fill="${a}" opacity=".8"/>
+    </svg>`;
+  }
+  if(item.art === "gaming"){
+    return `<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">${wallpaper}
+      <rect x="48" y="10" width="164" height="102" rx="8" fill="#0a0a12" stroke="rgba(255,90,110,.5)" stroke-width="1.5"/>
+      <rect x="54" y="16" width="152" height="90" rx="4" fill="url(#${wid})"/>
+      <circle cx="130" cy="13" r="1.4" fill="rgba(255,255,255,.5)"/>
+      <path d="M30 112 L230 112 L248 130 Q249 134 244 134 L16 134 Q11 134 12 130 Z" fill="#14141f" stroke="rgba(255,255,255,.1)"/>
+      <rect x="108" y="114" width="44" height="3" rx="1.5" fill="rgba(255,255,255,.14)"/>
+      <!-- RGB underglow -->
+      <rect x="30" y="133" width="218" height="4" rx="2" fill="url(#${gid})" opacity=".9"/>
+      <rect x="30" y="133" width="218" height="9" rx="4" fill="${a}" opacity=".25" style="filter:blur(3px)"/>
+    </svg>`;
+  }
+  // default windows clamshell
+  return `<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">${wallpaper}
+    <rect x="50" y="12" width="160" height="100" rx="8" fill="#0c0c16" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+    <rect x="56" y="18" width="148" height="88" rx="4" fill="url(#${wid})"/>
+    <circle cx="130" cy="15" r="1.4" fill="rgba(255,255,255,.5)"/>
+    <path d="M32 112 L228 112 L246 130 Q247 134 242 134 L18 134 Q13 134 14 130 Z" fill="#16161f" stroke="rgba(255,255,255,.1)"/>
+    <rect x="108" y="114" width="44" height="3" rx="1.5" fill="rgba(255,255,255,.14)"/>
+    <rect x="56" y="105" width="148" height="2" fill="${a}" opacity=".5"/>
+  </svg>`;
+}
+
+// simple color shade helper
+function shade(hex,p){
+  hex=hex.replace('#','');
+  let r=parseInt(hex.substr(0,2),16),g=parseInt(hex.substr(2,2),16),b=parseInt(hex.substr(4,2),16);
+  r=Math.max(0,Math.min(255,r+p));g=Math.max(0,Math.min(255,g+p));b=Math.max(0,Math.min(255,b+p));
+  return `rgb(${r},${g},${b})`;
+}
+
+/* ====== RENDER ====== */
+const grid=document.getElementById('grid');
+const fmt=n=>n.toLocaleString('en-US');
+
+function waLink(name,price){
+  const msg=encodeURIComponent(`¡Hola Aliens Corp! 👽 Me interesa la ${name} ($${fmt(price)}). ¿Está disponible?`);
+  return `https://wa.me/${WHATSAPP}?text=${msg}`;
+}
+
+function render(){
+  grid.innerHTML='';
+  items.filter(matchItem)
+       .slice().sort((a,b)=>{
+         const rank = x => x.cat==='Impresoras' ? 2 : (x.brand==='Apple' ? 1 : 0);
+         return rank(a)-rank(b);
+       })
+       .forEach((it,i)=>{
+    const card=document.createElement('article');
+    card.className='card'+(it.premium?' premium':'');
+    card.style.animationDelay=(i*60)+'ms';
+    card.style.setProperty('--cardaccent',it.accent||'#9bff5b');
+    const pillBrand = it.gaming
+      ? `<span class="pill gaming">Gamer</span>`
+      : `<span class="pill brand">${it.brand}</span>`;
+    const pillTop = it.premium && !it.gaming ? `<span class="pill top">Premium</span>` : '';
+    const osBadge = it.badge
+      ? `<div class="os">${it.badge}</div>`
+      : (it.cat==='Impresoras'
+          ? `<div class="os">Multifunción · lista para usar</div>`
+          : (it.cat==='Laptops' || !it.cat)
+              ? `<div class="os">Sistema operativo instalado</div>`
+              : '');
+    card.innerHTML=`
+      <div class="badge-top">${pillBrand}${pillTop}</div>
+      <div class="art"><div class="art-glow"></div>${it.photo && PHOTOS[it.photo] ? `<img class="art-photo" src="${PHOTOS[it.photo]}" alt="${it.t}" loading="lazy">` : laptopSVG(it,i)}</div>
+      <h2 class="title">${it.t}</h2>
+      ${osBadge}
+      <div class="specs">${it.specs.map(s=>`<span>${s}</span>`).join('')}</div>
+      ${it.note?`<div style="font-size:.74rem;color:var(--muted);margin:-6px 0 14px">${it.note}</div>`:''}
+      <div class="foot">
+        <div class="price"><div class="lbl">Precio</div><div class="val"><sup>$</sup>${fmt(it.price)}</div></div>
+        <a class="wa" href="${waLink(it.t,it.price)}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.521 5.26l-.999 3.648 3.967-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.29.173-1.414z"/></svg>
+          Pedir
+        </a>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ====== FILTROS EN DOS NIVELES ====== */
+// Nivel 1: categorías principales
+const CATS = ['Todas','Laptops','Impresoras'];
+// Nivel 2: submarcas según categoría
+const SUBS = {
+  'Laptops':   ['Todas','HP','Lenovo','Dell','Apple','Gaming'],
+  'Impresoras':['Todas','Epson']
+};
+
+let curCat = 'Todas';
+let curSub = 'Todas';
+
+const fbar   = document.getElementById('filters');
+const sfbar  = document.getElementById('subfilters');
+
+function matchItem(it){
+  // filtro por categoría
+  if(curCat==='Laptops'   && it.cat==='Impresoras') return false;
+  if(curCat==='Impresoras'&& it.cat!=='Impresoras') return false;
+  // filtro por submarca
+  if(curSub!=='Todas'){
+    if(curSub==='Gaming') return it.tags.includes('Gaming');
+    return it.brand===curSub;
+  }
+  return true;
+}
+
+function buildSubfilters(){
+  sfbar.innerHTML='';
+  const list = SUBS[curCat];
+  if(!list){ sfbar.classList.remove('show'); return; }
+  list.forEach(s=>{
+    const b=document.createElement('button');
+    b.textContent=s; if(s===curSub)b.classList.add('active');
+    b.onclick=()=>{
+      curSub=s;
+      sfbar.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      render();
+    };
+    sfbar.appendChild(b);
+  });
+  sfbar.classList.add('show');
+}
+
+CATS.forEach((c,idx)=>{
+  const b=document.createElement('button');
+  b.textContent=c; if(idx===0)b.classList.add('active');
+  b.onclick=()=>{
+    curCat=c; curSub='Todas';
+    fbar.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    buildSubfilters();
+    render();
+  };
+  fbar.appendChild(b);
+});
+
+document.getElementById('footwa').href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('¡Hola Aliens Corp! 👽 Quiero más información sobre sus productos.')}`;
+
+render();
+
+/* Enlaces directos desde la portada: tecnologia/#laptops y tecnologia/#impresoras */
+(function(){
+  const h=location.hash.slice(1);
+  if(h==='laptops'||h==='impresoras'){
+    const t=h==='laptops'?'Laptops':'Impresoras';
+    const b=[...fbar.querySelectorAll('button')].find(x=>x.textContent===t);
+    if(b) b.click();
+  }
+})();
+</script>
+</body>
+</html>
